@@ -1,91 +1,126 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Crown } from "lucide-react";
+import { Crown, User } from "lucide-react";
 
 interface VisualTemplatePreviewProps {
   id: string;
   name: string;
   isPremium: boolean;
-  variant: "modern" | "classic" | "creative" | "minimal";
+  variant: "professional" | "modern-photo" | "executive" | "creative-photo" | "minimal" | "two-column" | "sidebar-photo" | "elegant";
   onSelect: (id: string) => void;
 }
 
 export default function VisualTemplatePreview({ id, name, isPremium, variant, onSelect }: VisualTemplatePreviewProps) {
-  const renderModernTemplate = () => (
+  const renderProfessionalTemplate = () => (
     <div className="w-full h-full bg-white text-black p-4 text-[6px] leading-tight">
-      <div className="flex gap-2">
-        <div className="w-1/3 bg-slate-800 text-white p-2">
-          <div className="w-10 h-10 rounded-full bg-slate-600 mx-auto mb-2"></div>
-          <h3 className="font-bold text-center mb-2">John Smith</h3>
-          <p className="text-[5px] text-center mb-2">Senior Sales Associate</p>
-          <div className="space-y-1 text-[5px]">
-            <p className="font-semibold">Contact</p>
-            <p>123-456-7890</p>
-            <p>john@email.com</p>
-            <p className="font-semibold mt-2">Skills</p>
-            <p>Sales Management</p>
-            <p>Team Leadership</p>
-            <p>Client Relations</p>
-          </div>
-        </div>
-        <div className="w-2/3 p-2">
-          <h2 className="font-bold text-[7px] mb-1">Professional Summary</h2>
-          <p className="text-[5px] mb-2">Experienced sales professional with 5+ years...</p>
-          <h2 className="font-bold text-[7px] mb-1">Work History</h2>
-          <div className="space-y-1 text-[5px]">
-            <p className="font-semibold">Senior Sales Associate</p>
-            <p>Company Name | 2020-2024</p>
-            <p className="font-semibold">Sales Associate</p>
-            <p>Previous Co | 2018-2020</p>
-          </div>
-          <h2 className="font-bold text-[7px] mt-2 mb-1">Education</h2>
-          <p className="text-[5px]">Bachelor of Business Administration</p>
+      <div className="text-center mb-2 pb-2 border-b border-gray-200">
+        <h1 className="font-bold text-[9px] mb-0.5">ADITYA GUPTA</h1>
+        <p className="text-[5px] text-gray-600 mb-1">Software Developer</p>
+        <div className="flex justify-center gap-2 text-[4.5px] text-gray-600">
+          <span>📞 +91-7510690313</span>
+          <span>✉ aditya@gmail.com</span>
+          <span>🔗 linkedin.com/in/aditya</span>
         </div>
       </div>
-    </div>
-  );
-
-  const renderClassicTemplate = () => (
-    <div className="w-full h-full bg-white text-black p-4 text-[6px] leading-tight">
-      <h1 className="font-bold text-[9px] text-center mb-1">John Smith</h1>
-      <p className="text-[5px] text-center text-gray-600 mb-2">john@email.com | 123-456-7890</p>
-      <div className="border-t border-b border-gray-300 py-1 mb-2">
-        <h2 className="font-bold text-[7px]">PROFESSIONAL SUMMARY</h2>
-        <p className="text-[5px]">Results-driven professional with expertise in...</p>
-      </div>
-      <h2 className="font-bold text-[7px] mb-1">EXPERIENCE</h2>
-      <div className="space-y-1 text-[5px] mb-2">
+      <div className="space-y-1.5">
         <div>
-          <p className="font-semibold">Senior Sales Associate</p>
-          <p className="text-gray-600">Company Name | 2020-2024</p>
+          <h2 className="font-bold text-[6.5px] mb-0.5">SUMMARY</h2>
+          <p className="text-[5px] text-gray-700">Aspiring Software Developer skilled in Python, C++, Java...</p>
+        </div>
+        <div>
+          <h2 className="font-bold text-[6.5px] mb-0.5">EDUCATION</h2>
+          <p className="text-[5px] font-semibold">ABES Engineering College</p>
+          <p className="text-[4.5px] text-gray-600">Bachelor of Technology • CGPA: 7.92/10</p>
+        </div>
+        <div>
+          <h2 className="font-bold text-[6.5px] mb-0.5">EXPERIENCE</h2>
+          <p className="text-[5px] font-semibold">Software Development Intern</p>
+          <p className="text-[4.5px] text-gray-600">XYZ Corp • Jan 2024 - Present</p>
+        </div>
+        <div>
+          <h2 className="font-bold text-[6.5px] mb-0.5">TECHNICAL SKILLS</h2>
+          <p className="text-[4.5px] text-gray-700">Python, C++, Java, React, Node.js, MongoDB</p>
         </div>
       </div>
-      <h2 className="font-bold text-[7px] mb-1">EDUCATION</h2>
-      <p className="text-[5px]">Bachelor of Business Administration</p>
-      <h2 className="font-bold text-[7px] mt-1 mb-1">SKILLS</h2>
-      <p className="text-[5px]">Sales • Leadership • Communication</p>
     </div>
   );
 
-  const renderCreativeTemplate = () => (
-    <div className="w-full h-full bg-gradient-to-br from-purple-50 to-pink-50 text-black p-4 text-[6px] leading-tight">
-      <div className="bg-purple-600 text-white p-2 rounded mb-2">
-        <h1 className="font-bold text-[9px]">John Smith</h1>
-        <p className="text-[6px]">Creative Designer</p>
+  const renderModernPhotoTemplate = () => (
+    <div className="w-full h-full bg-white text-black p-4 text-[6px] leading-tight">
+      <div className="flex items-start gap-3 mb-2 pb-2 border-b-2 border-gray-800">
+        <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center flex-shrink-0">
+          <User className="w-6 h-6 text-white" />
+        </div>
+        <div className="flex-1">
+          <h1 className="font-bold text-[10px]">JOHN ANDERSON</h1>
+          <p className="text-[6px] text-gray-600 mb-0.5">Senior Product Manager</p>
+          <div className="text-[4.5px] text-gray-600">
+            <span>john@email.com • +1-234-567-8900</span>
+          </div>
+        </div>
       </div>
-      <div className="space-y-1">
-        <div className="bg-white/80 p-2 rounded">
-          <h2 className="font-bold text-[7px] text-purple-600 mb-1">About</h2>
-          <p className="text-[5px]">Passionate designer with eye for detail...</p>
+      <div className="grid grid-cols-2 gap-2">
+        <div className="space-y-1">
+          <h2 className="font-bold text-[6px] text-gray-800">EXPERIENCE</h2>
+          <div className="text-[4.5px]">
+            <p className="font-semibold">Senior PM</p>
+            <p className="text-gray-600">Tech Co • 2022-Now</p>
+          </div>
         </div>
-        <div className="bg-white/80 p-2 rounded">
-          <h2 className="font-bold text-[7px] text-purple-600 mb-1">Work History</h2>
-          <p className="text-[5px] font-semibold">Lead Designer</p>
-          <p className="text-[5px]">Design Studio | 2021-2024</p>
+        <div className="space-y-1">
+          <h2 className="font-bold text-[6px] text-gray-800">SKILLS</h2>
+          <p className="text-[4.5px] text-gray-700">Product Strategy</p>
+          <p className="text-[4.5px] text-gray-700">Agile/Scrum</p>
         </div>
-        <div className="bg-white/80 p-2 rounded">
-          <h2 className="font-bold text-[7px] text-purple-600 mb-1">Skills</h2>
-          <p className="text-[5px]">UI/UX • Figma • Adobe Creative Suite</p>
+      </div>
+    </div>
+  );
+
+  const renderExecutiveTemplate = () => (
+    <div className="w-full h-full bg-white text-black p-4 text-[6px] leading-tight">
+      <div className="flex gap-3 mb-2">
+        <div className="w-14 h-14 bg-gray-300 rounded flex items-center justify-center flex-shrink-0">
+          <User className="w-8 h-8 text-gray-600" />
+        </div>
+        <div className="flex-1">
+          <h1 className="font-bold text-[11px] mb-0.5">MICHAEL CHEN</h1>
+          <p className="text-[6px] text-gray-600 mb-1">Chief Technology Officer</p>
+          <p className="text-[4.5px] text-gray-600">michael.chen@email.com • San Francisco, CA</p>
+        </div>
+      </div>
+      <div className="space-y-1.5">
+        <div className="bg-gray-50 p-1.5 rounded">
+          <h2 className="font-bold text-[6px] mb-0.5">PROFESSIONAL SUMMARY</h2>
+          <p className="text-[4.5px] text-gray-700">Technology executive with 15+ years experience...</p>
+        </div>
+        <div>
+          <h2 className="font-bold text-[6px] mb-0.5">LEADERSHIP EXPERIENCE</h2>
+          <p className="text-[5px] font-semibold">CTO • Tech Innovations Inc</p>
+          <p className="text-[4.5px] text-gray-600">2019 - Present</p>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderCreativePhotoTemplate = () => (
+    <div className="w-full h-full bg-gradient-to-br from-indigo-50 to-purple-50 text-black p-4 text-[6px] leading-tight">
+      <div className="flex items-center gap-2 mb-2">
+        <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+          <User className="w-8 h-8 text-white" />
+        </div>
+        <div>
+          <h1 className="font-bold text-[10px] bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">SARAH WILLIAMS</h1>
+          <p className="text-[6px] text-gray-700">UX/UI Designer</p>
+        </div>
+      </div>
+      <div className="space-y-1.5">
+        <div className="bg-white/70 backdrop-blur p-1.5 rounded">
+          <h2 className="font-bold text-[6px] text-indigo-600 mb-0.5">ABOUT</h2>
+          <p className="text-[4.5px]">Creative designer passionate about user experience...</p>
+        </div>
+        <div className="bg-white/70 backdrop-blur p-1.5 rounded">
+          <h2 className="font-bold text-[6px] text-indigo-600 mb-0.5">EXPERIENCE</h2>
+          <p className="text-[4.5px] font-semibold">Lead Designer • Design Studio</p>
         </div>
       </div>
     </div>
@@ -93,30 +128,124 @@ export default function VisualTemplatePreview({ id, name, isPremium, variant, on
 
   const renderMinimalTemplate = () => (
     <div className="w-full h-full bg-white text-black p-4 text-[6px] leading-tight">
-      <h1 className="font-bold text-[10px] mb-0.5">John Smith</h1>
-      <p className="text-[6px] text-gray-600 mb-2">john@email.com • 123-456-7890 • linkedin.com/in/johnsmith</p>
-      <div className="space-y-2">
+      <h1 className="font-bold text-[10px] mb-0.5">Kriti Jaiswal</h1>
+      <div className="text-[4.5px] text-gray-600 mb-2 flex gap-2">
+        <span>📞 +91-xxxxxxxxxx</span>
+        <span>✉ kriti@yahoo.com</span>
+        <span>🔗 linkedin.com/in/kriti-jaiswal</span>
+      </div>
+      <div className="space-y-1.5">
         <div>
-          <h2 className="font-bold text-[7px] mb-0.5">EXPERIENCE</h2>
-          <div className="border-l-2 border-gray-300 pl-1 space-y-1 text-[5px]">
-            <div>
-              <p className="font-semibold">Senior Sales Associate • Company Name</p>
-              <p className="text-gray-600">2020-2024</p>
-            </div>
-            <div>
-              <p className="font-semibold">Sales Associate • Previous Company</p>
-              <p className="text-gray-600">2018-2020</p>
-            </div>
+          <h2 className="font-bold text-[6.5px] mb-0.5">EDUCATION</h2>
+          <p className="text-[5px] font-semibold">XYZ Professional University</p>
+          <p className="text-[4.5px] text-gray-600 italic">Bachelor of Technology - Computer Science • CGPA: 8.60</p>
+        </div>
+        <div>
+          <h2 className="font-bold text-[6.5px] mb-0.5">EXPERIENCE</h2>
+          <p className="text-[5px] font-semibold">Software Development Engineer Intern</p>
+          <p className="text-[4.5px] text-gray-600">GE Digital • Jan 2024 - July 2024</p>
+        </div>
+        <div>
+          <h2 className="font-bold text-[6.5px] mb-0.5">TECHNICAL SKILLS</h2>
+          <p className="text-[4.5px] text-gray-700"><span className="font-semibold">Languages:</span> C++, C, Java, JavaScript, Python</p>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderTwoColumnTemplate = () => (
+    <div className="w-full h-full bg-white text-black p-3 text-[6px] leading-tight">
+      <div className="flex gap-2">
+        <div className="w-2/5 space-y-1.5">
+          <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg mx-auto mb-2 flex items-center justify-center">
+            <User className="w-10 h-10 text-white" />
+          </div>
+          <div className="text-center">
+            <h2 className="font-bold text-[6px] mb-1">CONTACT</h2>
+            <p className="text-[4.5px] text-gray-700 mb-0.5">📞 +1-234-567</p>
+            <p className="text-[4.5px] text-gray-700">✉ email@mail.com</p>
+          </div>
+          <div>
+            <h2 className="font-bold text-[6px] mb-1">SKILLS</h2>
+            <p className="text-[4.5px] text-gray-700">• JavaScript</p>
+            <p className="text-[4.5px] text-gray-700">• React</p>
+            <p className="text-[4.5px] text-gray-700">• Node.js</p>
           </div>
         </div>
-        <div>
-          <h2 className="font-bold text-[7px] mb-0.5">EDUCATION</h2>
-          <p className="text-[5px]">Bachelor of Business Administration</p>
-          <p className="text-[5px] text-gray-600">University Name | 2018</p>
+        <div className="w-3/5 space-y-1.5">
+          <h1 className="font-bold text-[10px]">ALEX RIVERA</h1>
+          <p className="text-[6px] text-gray-600 mb-2">Full Stack Developer</p>
+          <div>
+            <h2 className="font-bold text-[6px] mb-0.5">EXPERIENCE</h2>
+            <p className="text-[5px] font-semibold">Senior Developer</p>
+            <p className="text-[4.5px] text-gray-600">Tech Startup • 2022-Now</p>
+          </div>
+          <div>
+            <h2 className="font-bold text-[6px] mb-0.5">EDUCATION</h2>
+            <p className="text-[5px] font-semibold">BS Computer Science</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderSidebarPhotoTemplate = () => (
+    <div className="w-full h-full bg-white text-black p-0 text-[6px] leading-tight flex">
+      <div className="w-1/3 bg-slate-700 text-white p-3 space-y-2">
+        <div className="w-14 h-14 bg-slate-500 rounded-full mx-auto mb-2 flex items-center justify-center">
+          <User className="w-8 h-8 text-white" />
+        </div>
+        <div className="text-center">
+          <h2 className="font-bold text-[6px] mb-1">CONTACT</h2>
+          <p className="text-[4.5px] text-slate-300">+1-555-0123</p>
+          <p className="text-[4.5px] text-slate-300">email@example.com</p>
         </div>
         <div>
-          <h2 className="font-bold text-[7px] mb-0.5">SKILLS</h2>
-          <p className="text-[5px]">Sales Management • Team Leadership • CRM Tools • Client Relations</p>
+          <h2 className="font-bold text-[6px] mb-1">SKILLS</h2>
+          <div className="space-y-0.5 text-[4.5px] text-slate-300">
+            <p>• Python</p>
+            <p>• Data Analysis</p>
+            <p>• Machine Learning</p>
+          </div>
+        </div>
+      </div>
+      <div className="w-2/3 p-3 space-y-1.5">
+        <h1 className="font-bold text-[10px]">EMILY RODRIGUEZ</h1>
+        <p className="text-[6px] text-gray-600 mb-2">Data Scientist</p>
+        <div>
+          <h2 className="font-bold text-[6.5px] mb-0.5">EXPERIENCE</h2>
+          <p className="text-[5px] font-semibold">Senior Data Scientist</p>
+          <p className="text-[4.5px] text-gray-600">Analytics Corp • 2021-Present</p>
+        </div>
+        <div>
+          <h2 className="font-bold text-[6.5px] mb-0.5">EDUCATION</h2>
+          <p className="text-[5px] font-semibold">MS Data Science</p>
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderElegantTemplate = () => (
+    <div className="w-full h-full bg-gradient-to-b from-slate-50 to-white text-black p-4 text-[6px] leading-tight">
+      <div className="border-b-2 border-slate-800 pb-2 mb-2">
+        <h1 className="font-bold text-[11px] tracking-wide">DAVID THOMPSON</h1>
+        <p className="text-[6px] text-gray-600">Business Analyst</p>
+      </div>
+      <div className="flex gap-3 text-[4.5px] text-gray-600 mb-2">
+        <span>📧 david.t@email.com</span>
+        <span>📞 +1-555-1234</span>
+        <span>📍 New York, NY</span>
+      </div>
+      <div className="space-y-1.5">
+        <div>
+          <h2 className="font-bold text-[6.5px] tracking-wide mb-0.5">PROFESSIONAL EXPERIENCE</h2>
+          <p className="text-[5px] font-semibold">Senior Business Analyst</p>
+          <p className="text-[4.5px] text-gray-600">Fortune 500 Company • 2020-Present</p>
+        </div>
+        <div>
+          <h2 className="font-bold text-[6.5px] tracking-wide mb-0.5">EDUCATION</h2>
+          <p className="text-[5px] font-semibold">MBA - Business Analytics</p>
+          <p className="text-[4.5px] text-gray-600">Top University • 2019</p>
         </div>
       </div>
     </div>
@@ -124,14 +253,22 @@ export default function VisualTemplatePreview({ id, name, isPremium, variant, on
 
   const renderTemplate = () => {
     switch (variant) {
-      case "modern":
-        return renderModernTemplate();
-      case "classic":
-        return renderClassicTemplate();
-      case "creative":
-        return renderCreativeTemplate();
+      case "professional":
+        return renderProfessionalTemplate();
+      case "modern-photo":
+        return renderModernPhotoTemplate();
+      case "executive":
+        return renderExecutiveTemplate();
+      case "creative-photo":
+        return renderCreativePhotoTemplate();
       case "minimal":
         return renderMinimalTemplate();
+      case "two-column":
+        return renderTwoColumnTemplate();
+      case "sidebar-photo":
+        return renderSidebarPhotoTemplate();
+      case "elegant":
+        return renderElegantTemplate();
       default:
         return renderMinimalTemplate();
     }

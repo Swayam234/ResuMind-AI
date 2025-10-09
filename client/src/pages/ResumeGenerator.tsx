@@ -13,20 +13,20 @@ import EditableTemplateEditor from "@/components/EditableTemplateEditor";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
-// Latest templates inspired by LinkedIn and job platforms
+// Diverse templates inspired by LinkedIn, Canva, and professional resume designs
 const templates = [
-  { id: "linkedin-modern", name: "LinkedIn Modern", category: "All Industries", isPremium: false, variant: "modern" as const },
-  { id: "tech-startup", name: "Tech Startup", category: "Tech & Engineering", isPremium: false, variant: "minimal" as const },
-  { id: "creative-bold", name: "Creative Bold", category: "Design & Marketing", isPremium: true, variant: "creative" as const },
-  { id: "executive-premium", name: "Executive Premium", category: "Management & Leadership", isPremium: true, variant: "classic" as const },
-  { id: "minimal-clean", name: "Minimal Clean", category: "All Industries", isPremium: false, variant: "minimal" as const },
-  { id: "indeed-classic", name: "Indeed Classic", category: "All Industries", isPremium: false, variant: "classic" as const },
-  { id: "glassdoor-pro", name: "Glassdoor Pro", category: "Business & Finance", isPremium: true, variant: "modern" as const },
-  { id: "startup-ninja", name: "Startup Ninja", category: "Tech & Startups", isPremium: false, variant: "creative" as const },
-  { id: "marketing-guru", name: "Marketing Guru", category: "Marketing & Sales", isPremium: true, variant: "creative" as const },
-  { id: "data-scientist", name: "Data Scientist", category: "Data & Analytics", isPremium: false, variant: "minimal" as const },
-  { id: "remote-worker", name: "Remote First", category: "Remote Work", isPremium: false, variant: "modern" as const },
-  { id: "career-changer", name: "Career Changer", category: "All Industries", isPremium: true, variant: "classic" as const },
+  { id: "professional-clean", name: "Professional Clean", category: "All Industries", isPremium: false, variant: "professional" as const, hasPhoto: false },
+  { id: "modern-photo", name: "Modern with Photo", category: "All Industries", isPremium: false, variant: "modern-photo" as const, hasPhoto: true },
+  { id: "executive-photo", name: "Executive Profile", category: "Management", isPremium: true, variant: "executive" as const, hasPhoto: true },
+  { id: "creative-designer", name: "Creative Designer", category: "Design & Creative", isPremium: true, variant: "creative-photo" as const, hasPhoto: true },
+  { id: "minimal-ats", name: "Minimal ATS-Friendly", category: "All Industries", isPremium: false, variant: "minimal" as const, hasPhoto: false },
+  { id: "two-column-photo", name: "Two Column with Photo", category: "Tech & Business", isPremium: false, variant: "two-column" as const, hasPhoto: true },
+  { id: "sidebar-professional", name: "Sidebar Professional", category: "Data & Analytics", isPremium: true, variant: "sidebar-photo" as const, hasPhoto: true },
+  { id: "elegant-business", name: "Elegant Business", category: "Business & Finance", isPremium: false, variant: "elegant" as const, hasPhoto: false },
+  { id: "tech-minimal", name: "Tech Minimal", category: "Tech & Engineering", isPremium: false, variant: "minimal" as const, hasPhoto: false },
+  { id: "canva-inspired", name: "Canva Inspired", category: "Marketing & Sales", isPremium: true, variant: "creative-photo" as const, hasPhoto: true },
+  { id: "linkedin-style", name: "LinkedIn Style", category: "All Industries", isPremium: false, variant: "modern-photo" as const, hasPhoto: true },
+  { id: "classic-professional", name: "Classic Professional", category: "All Industries", isPremium: false, variant: "professional" as const, hasPhoto: false },
 ];
 
 export default function ResumeGenerator() {
@@ -198,7 +198,7 @@ export default function ResumeGenerator() {
 
               {selectedTemplate && (
                 <EditableTemplateEditor 
-                  variant={templates.find(t => t.id === selectedTemplate)?.variant || "minimal"}
+                  variant={templates.find(t => t.id === selectedTemplate)?.variant as any || "minimal"}
                   templateName={templates.find(t => t.id === selectedTemplate)?.name || "Resume"}
                 />
               )}

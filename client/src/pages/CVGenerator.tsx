@@ -12,14 +12,14 @@ import RecommendationChip from "@/components/RecommendationChip";
 import { Lightbulb, BookOpen } from "lucide-react";
 
 const cvTemplates = [
-  { id: "academic-modern", name: "Academic Modern", category: "Research & Academia", isPremium: false, variant: "classic" as const },
-  { id: "scientific-publications", name: "Scientific Publications", category: "Science & Research", isPremium: true, variant: "minimal" as const },
-  { id: "medical-professional", name: "Medical Professional", category: "Healthcare", isPremium: false, variant: "modern" as const },
-  { id: "phd-candidate", name: "PhD Candidate", category: "Academia", isPremium: false, variant: "minimal" as const },
-  { id: "professor-track", name: "Professor Track", category: "Higher Education", isPremium: true, variant: "classic" as const },
-  { id: "industry-research", name: "Industry Research", category: "R&D", isPremium: false, variant: "modern" as const },
-  { id: "grant-focused", name: "Grant Writer", category: "Research Funding", isPremium: true, variant: "classic" as const },
-  { id: "international-cv", name: "International CV", category: "Global Academia", isPremium: true, variant: "minimal" as const },
+  { id: "academic-professional", name: "Academic Professional", category: "Research & Academia", isPremium: false, variant: "professional" as const, hasPhoto: false },
+  { id: "academic-photo", name: "Academic with Photo", category: "Research & Academia", isPremium: true, variant: "executive" as const, hasPhoto: true },
+  { id: "research-minimal", name: "Research Minimal", category: "Science & Research", isPremium: false, variant: "minimal" as const, hasPhoto: false },
+  { id: "medical-cv", name: "Medical Professional CV", category: "Healthcare", isPremium: false, variant: "professional" as const, hasPhoto: false },
+  { id: "phd-modern", name: "PhD Modern", category: "Academia", isPremium: true, variant: "two-column" as const, hasPhoto: true },
+  { id: "professor-elegant", name: "Professor Elegant", category: "Higher Education", isPremium: true, variant: "elegant" as const, hasPhoto: false },
+  { id: "research-sidebar", name: "Research Sidebar", category: "R&D", isPremium: true, variant: "sidebar-photo" as const, hasPhoto: true },
+  { id: "international-academic", name: "International Academic", category: "Global Academia", isPremium: false, variant: "minimal" as const, hasPhoto: false },
 ];
 
 export default function CVGenerator() {
