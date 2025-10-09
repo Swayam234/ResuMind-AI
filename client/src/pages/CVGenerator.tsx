@@ -5,21 +5,21 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FilePlus, Upload } from "lucide-react";
-import TemplateCard from "@/components/TemplateCard";
+import VisualTemplatePreview from "@/components/VisualTemplatePreview";
 import FileUpload from "@/components/FileUpload";
 import ATSScoreCircle from "@/components/ATSScoreCircle";
 import RecommendationChip from "@/components/RecommendationChip";
 import { Lightbulb, BookOpen } from "lucide-react";
 
 const cvTemplates = [
-  { id: "academic-modern", name: "Academic Modern", category: "Research & Academia", isPremium: false, preview: "Contemporary research CV" },
-  { id: "scientific-publications", name: "Scientific Publications", category: "Science & Research", isPremium: true, preview: "Publication-focused design" },
-  { id: "medical-professional", name: "Medical Professional", category: "Healthcare", isPremium: false, preview: "Clinical experience layout" },
-  { id: "phd-candidate", name: "PhD Candidate", category: "Academia", isPremium: false, preview: "Graduate research focus" },
-  { id: "professor-track", name: "Professor Track", category: "Higher Education", isPremium: true, preview: "Teaching & research balance" },
-  { id: "industry-research", name: "Industry Research", category: "R&D", isPremium: false, preview: "Applied research emphasis" },
-  { id: "grant-focused", name: "Grant Writer", category: "Research Funding", isPremium: true, preview: "Funding & grants highlight" },
-  { id: "international-cv", name: "International CV", category: "Global Academia", isPremium: true, preview: "Multi-region format" },
+  { id: "academic-modern", name: "Academic Modern", category: "Research & Academia", isPremium: false, variant: "classic" as const },
+  { id: "scientific-publications", name: "Scientific Publications", category: "Science & Research", isPremium: true, variant: "minimal" as const },
+  { id: "medical-professional", name: "Medical Professional", category: "Healthcare", isPremium: false, variant: "modern" as const },
+  { id: "phd-candidate", name: "PhD Candidate", category: "Academia", isPremium: false, variant: "minimal" as const },
+  { id: "professor-track", name: "Professor Track", category: "Higher Education", isPremium: true, variant: "classic" as const },
+  { id: "industry-research", name: "Industry Research", category: "R&D", isPremium: false, variant: "modern" as const },
+  { id: "grant-focused", name: "Grant Writer", category: "Research Funding", isPremium: true, variant: "classic" as const },
+  { id: "international-cv", name: "International CV", category: "Global Academia", isPremium: true, variant: "minimal" as const },
 ];
 
 export default function CVGenerator() {
@@ -67,7 +67,14 @@ export default function CVGenerator() {
                 <h2 className="text-2xl font-semibold mb-4">Choose a CV Template</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
                   {cvTemplates.map(template => (
-                    <TemplateCard key={template.id} {...template} onSelect={handleTemplateSelect} />
+                    <VisualTemplatePreview 
+                      key={template.id} 
+                      id={template.id}
+                      name={template.name}
+                      isPremium={template.isPremium}
+                      variant={template.variant}
+                      onSelect={handleTemplateSelect} 
+                    />
                   ))}
                 </div>
 

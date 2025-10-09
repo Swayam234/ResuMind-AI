@@ -14,56 +14,56 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" data-testid="link-home-logo">
-            <a className="flex items-center gap-2 hover-elevate active-elevate-2 rounded-lg px-3 py-2 -ml-3">
+            <div className="flex items-center gap-2 hover-elevate active-elevate-2 rounded-lg px-3 py-2 -ml-3 cursor-pointer">
               <FileText className="w-6 h-6 text-primary" />
               <span className="text-xl font-bold bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent">
                 ResuMind AI
               </span>
-            </a>
+            </div>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
             <Link href="/" data-testid="link-home">
-              <a className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover-elevate active-elevate-2 ${
+              <div className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover-elevate active-elevate-2 cursor-pointer ${
                 isActive("/") ? "bg-primary/10 text-primary" : "text-foreground"
               }`}>
                 Home
-              </a>
+              </div>
             </Link>
             <Link href="/resume-generator" data-testid="link-resume-generator">
-              <a className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover-elevate active-elevate-2 ${
+              <div className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover-elevate active-elevate-2 cursor-pointer ${
                 isActive("/resume-generator") ? "bg-primary/10 text-primary" : "text-foreground"
               }`}>
                 Resume Generator
-              </a>
+              </div>
             </Link>
             <Link href="/resume-screening" data-testid="link-resume-screening">
-              <a className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover-elevate active-elevate-2 ${
+              <div className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover-elevate active-elevate-2 cursor-pointer ${
                 isActive("/resume-screening") ? "bg-primary/10 text-primary" : "text-foreground"
               }`}>
                 Resume Screening
-              </a>
+              </div>
             </Link>
             <Link href="/cv-generator" data-testid="link-cv-generator">
-              <a className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover-elevate active-elevate-2 ${
+              <div className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover-elevate active-elevate-2 cursor-pointer ${
                 isActive("/cv-generator") ? "bg-primary/10 text-primary" : "text-foreground"
               }`}>
                 CV Generator
-              </a>
+              </div>
             </Link>
             <Link href="/about" data-testid="link-about">
-              <a className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover-elevate active-elevate-2 ${
+              <div className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover-elevate active-elevate-2 cursor-pointer ${
                 isActive("/about") ? "bg-primary/10 text-primary" : "text-foreground"
               }`}>
                 About
-              </a>
+              </div>
             </Link>
             <Link href="/contact" data-testid="link-contact">
-              <a className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover-elevate active-elevate-2 ${
+              <div className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors hover-elevate active-elevate-2 cursor-pointer ${
                 isActive("/contact") ? "bg-primary/10 text-primary" : "text-foreground"
               }`}>
                 Contact
-              </a>
+              </div>
             </Link>
           </nav>
 

@@ -8,24 +8,25 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Download, Wand2 } from "lucide-react";
-import TemplateCard from "@/components/TemplateCard";
+import VisualTemplatePreview from "@/components/VisualTemplatePreview";
+import EditableTemplateEditor from "@/components/EditableTemplateEditor";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
 // Latest templates inspired by LinkedIn and job platforms
 const templates = [
-  { id: "linkedin-modern", name: "LinkedIn Modern", category: "All Industries", isPremium: false, preview: "LinkedIn-style layout with photo section" },
-  { id: "tech-startup", name: "Tech Startup", category: "Tech & Engineering", isPremium: false, preview: "Clean tech-focused design" },
-  { id: "creative-bold", name: "Creative Bold", category: "Design & Marketing", isPremium: true, preview: "Eye-catching creative layout" },
-  { id: "executive-premium", name: "Executive Premium", category: "Management & Leadership", isPremium: true, preview: "Sophisticated C-level design" },
-  { id: "minimal-clean", name: "Minimal Clean", category: "All Industries", isPremium: false, preview: "Simple ATS-friendly format" },
-  { id: "indeed-classic", name: "Indeed Classic", category: "All Industries", isPremium: false, preview: "Traditional professional style" },
-  { id: "glassdoor-pro", name: "Glassdoor Pro", category: "Business & Finance", isPremium: true, preview: "Professional business format" },
-  { id: "startup-ninja", name: "Startup Ninja", category: "Tech & Startups", isPremium: false, preview: "Dynamic startup-focused design" },
-  { id: "marketing-guru", name: "Marketing Guru", category: "Marketing & Sales", isPremium: true, preview: "Results-driven marketing layout" },
-  { id: "data-scientist", name: "Data Scientist", category: "Data & Analytics", isPremium: false, preview: "Technical skills showcase" },
-  { id: "remote-worker", name: "Remote First", category: "Remote Work", isPremium: false, preview: "Optimized for remote positions" },
-  { id: "career-changer", name: "Career Changer", category: "All Industries", isPremium: true, preview: "Highlights transferable skills" },
+  { id: "linkedin-modern", name: "LinkedIn Modern", category: "All Industries", isPremium: false, variant: "modern" as const },
+  { id: "tech-startup", name: "Tech Startup", category: "Tech & Engineering", isPremium: false, variant: "minimal" as const },
+  { id: "creative-bold", name: "Creative Bold", category: "Design & Marketing", isPremium: true, variant: "creative" as const },
+  { id: "executive-premium", name: "Executive Premium", category: "Management & Leadership", isPremium: true, variant: "classic" as const },
+  { id: "minimal-clean", name: "Minimal Clean", category: "All Industries", isPremium: false, variant: "minimal" as const },
+  { id: "indeed-classic", name: "Indeed Classic", category: "All Industries", isPremium: false, variant: "classic" as const },
+  { id: "glassdoor-pro", name: "Glassdoor Pro", category: "Business & Finance", isPremium: true, variant: "modern" as const },
+  { id: "startup-ninja", name: "Startup Ninja", category: "Tech & Startups", isPremium: false, variant: "creative" as const },
+  { id: "marketing-guru", name: "Marketing Guru", category: "Marketing & Sales", isPremium: true, variant: "creative" as const },
+  { id: "data-scientist", name: "Data Scientist", category: "Data & Analytics", isPremium: false, variant: "minimal" as const },
+  { id: "remote-worker", name: "Remote First", category: "Remote Work", isPremium: false, variant: "modern" as const },
+  { id: "career-changer", name: "Career Changer", category: "All Industries", isPremium: true, variant: "classic" as const },
 ];
 
 export default function ResumeGenerator() {
@@ -183,22 +184,23 @@ export default function ResumeGenerator() {
                 <h2 className="text-2xl font-semibold mb-4">Choose a Template</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {templates.map(template => (
-                    <TemplateCard key={template.id} {...template} onSelect={handleTemplateSelect} />
+                    <VisualTemplatePreview 
+                      key={template.id} 
+                      id={template.id}
+                      name={template.name}
+                      isPremium={template.isPremium}
+                      variant={template.variant}
+                      onSelect={handleTemplateSelect} 
+                    />
                   ))}
                 </div>
               </div>
 
               {selectedTemplate && (
-                <Card className="p-6 mt-8">
-                  <h3 className="text-xl font-semibold mb-4">Customize Your Resume</h3>
-                  <p className="text-muted-foreground">
-                    Template selected: {templates.find(t => t.id === selectedTemplate)?.name}
-                  </p>
-                  <Button className="mt-4" onClick={handleDownload} data-testid="button-download-template">
-                    <Download className="w-4 h-4 mr-2" />
-                    Download Resume
-                  </Button>
-                </Card>
+                <EditableTemplateEditor 
+                  variant={templates.find(t => t.id === selectedTemplate)?.variant || "minimal"}
+                  templateName={templates.find(t => t.id === selectedTemplate)?.name || "Resume"}
+                />
               )}
             </TabsContent>
           </Tabs>
