@@ -1,3 +1,4 @@
+# Ignored files and directories by git
 node_modules
 dist
 .DS_Store
